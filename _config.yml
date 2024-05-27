@@ -111,9 +111,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "Pilz"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
+  bio              : "Yo wassup"
   location         : "Somewhere"
   email            :
   links:
@@ -125,7 +125,7 @@ author:
       # url: "https://your-website.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/pilz1312"
+      url: "https://twitter.com/pilz1312"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url: "https://facebook.com/"
