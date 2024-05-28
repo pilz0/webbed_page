@@ -58,12 +58,12 @@ Maybe soon a GTX 1060
 ## VPS
 ### Hardware
 
-Ionos VPS
-2 Epyc Milan Cores
-2gb RAM
-80gb SSD
-1GB
+Ionos VPS  
+2 Epyc Milan Cores  
+2gb RAM  
+80gb SSD  
+
 ## Software
-NixOS
-Tor Relay
-Listmonk
+NixOS  
+Tor Relay  
+Listmonk  
