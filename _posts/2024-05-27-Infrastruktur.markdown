@@ -11,7 +11,7 @@ OS: NixOS
 DE: Gnome  
 Browser: Firefox  
 Editor: vscode  
-My full Config: [github.com/pilz0/laptop](https://github.com/pilz0/laptop)
+My full Config: [github.com/pilz0/sexos](https://github.com/pilz0/sexos)
 
 ### Hardware
 Framework Laptop 13  
