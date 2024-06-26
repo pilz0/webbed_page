@@ -1,10 +1,10 @@
 ---
 layout: post
+autor: Pilz
 title:  "Fahrende Bierkiste"
 date:   2024-05-26 16:10:00 -0100
 categories: Technik Bierkiste
 author_profile: true
-autor: "Pilz"
 ---
 ## Dokumentation fahrende Bierkiste
 
