@@ -21,7 +21,7 @@ title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Pilz"
 description              : "Webbed page."
-url                      : "https://kiffen.tech"
+url                      : "https://boymode.me"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "pilz0/webbed_page"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
