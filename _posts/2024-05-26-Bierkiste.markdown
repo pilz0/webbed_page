@@ -3,6 +3,7 @@ layout: post
 title:  "Fahrende Bierkiste"
 date:   2024-05-26 16:10:00 -0100
 categories: Technik Bierkiste
+author_profile: true
 ---
 ## Dokumentation fahrende Bierkiste
 
