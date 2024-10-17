@@ -5,7 +5,7 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP6weqYi/f7nQzsCr11NVz/7cdmpSq7sU1N+Ag5jM45S
 sk-ecdsa-sha2-nistp256@openssh.com AAAAInNrLWVjZHNhLXNoYTItbmlzdHAyNTZAb3BlbnNzaC5jb20AAAAIbmlzdHAyNTYAAABBBAGgIgZKjLpJFdYK1+Ovd1IHQZhdCy2ZIz1Sf8qVGErkNVPkYOU3iJRoK2pJKrotZTo/2oTaSTzxewXKKJQ98toAAAAEc3NoOg== pilz@token2
 EOF
 
-apt update -y && apt install apt-transport-https speedtest-cli gpg neofetch tmux btop htop nmap curl wget git unattended-upgrades prometheus-node-exporter apt-listchanges -y && wget -qO- https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --dearmor | tee /usr/share/keyrings/deb.torproject.org-keyring.gpg >/dev/null
+apt update -y && apt install apt-transport-https fail2ban speedtest-cli gpg neofetch tmux btop htop nmap curl wget git unattended-upgrades prometheus-node-exporter apt-listchanges -y && wget -qO- https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --dearmor | tee /usr/share/keyrings/deb.torproject.org-keyring.gpg >/dev/null
 
 cat <<EOF > /etc/apt/sources.list.d/tor.list
 deb     [signed-by=/usr/share/keyrings/deb.torproject.org-keyring.gpg] https://deb.torproject.org/torproject.org bookworm main
@@ -32,6 +32,10 @@ APT::Periodic::AutocleanInterval "5";
 APT::Periodic::Unattended-Upgrade "1";
 APT::Periodic::Verbose "1";
 EOF
+
+echo -e "[sshd]\nenabled = true\nfilter = sshd\naction = iptables[name=SSH, port=ssh, protocol=tcp]\nlogpath = /var/log/auth.log\nmaxretry = 5\nbantime = 600" | sudo tee /etc/fail2ban/jail.d/sshd.local && sudo systemctl restart fail2ban
+
+echo -e "PasswordAuthentication no\nPermitRootLogin prohibit-password" | sudo tee -a /etc/ssh/sshd_config && sudo systemctl restart sshd
 
 RANDOM_NUMBER=$(shuf -i 1000-9999 -n 1)
 
