@@ -35,7 +35,16 @@ EOF
 
 echo -e "[sshd]\nenabled = true\nfilter = sshd\naction = iptables[name=SSH, port=ssh, protocol=tcp]\nlogpath = /var/log/auth.log\nmaxretry = 5\nbantime = 600" | sudo tee /etc/fail2ban/jail.d/sshd.local && sudo systemctl restart fail2ban
 
-echo -e "PasswordAuthentication no\nPermitRootLogin prohibit-password" | sudo tee -a /etc/ssh/sshd_config && sudo systemctl restart sshd
+curl https://boymode.me/sshd -o ~/sshd_config
+
+sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.backup
+
+sudo mv ~/sshd_config /etc/ssh/sshd_config
+
+sudo chown root:root /etc/ssh/sshd_config
+sudo chmod 644 /etc/ssh/sshd_config
+
+sudo systemctl restart ssh
 
 RANDOM_NUMBER=$(shuf -i 1000-9999 -n 1)
 
